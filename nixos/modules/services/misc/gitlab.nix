@@ -770,6 +770,7 @@ in {
             pages-root = mkOption {
               type = types.str;
               default = "${gitlabConfig.production.shared.path}/pages";
+              defaultText = literalExpression ''config.${opt.extraConfig}.production.shared.path + "/pages"'';
               description = ''
                 The directory where pages are stored.
               '';
