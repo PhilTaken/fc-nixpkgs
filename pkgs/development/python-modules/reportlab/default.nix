@@ -25,8 +25,7 @@ in buildPythonPackage rec {
 
   checkInputs = [ glibcLocales ];
 
-  buildInputs = [ ft ];
-  propagatedBuildInputs = [ pillow ];
+  buildInputs = [ ft pillow ];
 
   postPatch = ''
     substituteInPlace setup.py \

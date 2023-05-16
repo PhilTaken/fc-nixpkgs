@@ -111,7 +111,6 @@ in {
         [ kernelPatches.bridge_stp_helper
           kernelPatches.request_key_helper
           kernelPatches.modinst_arg_list_too_long
-          kernelPatches.CVE-2023-32233
         ];
     };
 
@@ -120,7 +119,6 @@ in {
         kernelPatches.bridge_stp_helper
         kernelPatches.request_key_helper
         kernelPatches.rtl8761b_support
-        kernelPatches.CVE-2023-32233
       ];
     };
 
@@ -128,7 +126,6 @@ in {
       kernelPatches = [
         kernelPatches.bridge_stp_helper
         kernelPatches.request_key_helper
-        kernelPatches.CVE-2023-32233
       ];
     };
 
@@ -136,7 +133,6 @@ in {
       kernelPatches = [
         kernelPatches.bridge_stp_helper
         kernelPatches.request_key_helper
-        kernelPatches.CVE-2023-32233
       ];
     };
 
@@ -145,7 +141,6 @@ in {
         kernelPatches.bridge_stp_helper
         kernelPatches.request_key_helper
         kernelPatches.export-rt-sched-migrate
-        kernelPatches.CVE-2023-32233
       ];
     };
 
@@ -154,7 +149,6 @@ in {
         kernelPatches.bridge_stp_helper
         kernelPatches.request_key_helper
         kernelPatches.fix-em-ice-bonding
-        kernelPatches.CVE-2023-32233
       ];
     };
 
@@ -169,7 +163,6 @@ in {
         kernelPatches.bridge_stp_helper
         kernelPatches.request_key_helper
         kernelPatches.fix-em-ice-bonding
-        kernelPatches.CVE-2023-32233
       ];
     };
 
@@ -178,16 +171,6 @@ in {
         kernelPatches.bridge_stp_helper
         kernelPatches.request_key_helper
         kernelPatches.fix-em-ice-bonding
-        kernelPatches.CVE-2023-32233
-      ];
-    };
-
-    linux_6_3 = callPackage ../os-specific/linux/kernel/linux-6.3.nix {
-      kernelPatches = [
-        kernelPatches.bridge_stp_helper
-        kernelPatches.request_key_helper
-        kernelPatches.fix-em-ice-bonding
-        kernelPatches.CVE-2023-32233
       ];
     };
 
@@ -548,7 +531,6 @@ in {
     linux_6_0 = throw "linux 6.0 was removed because it reached its end of life upstream"; # Added 2023-01-20
     linux_6_1 = recurseIntoAttrs (packagesFor kernels.linux_6_1);
     linux_6_2 = recurseIntoAttrs (packagesFor kernels.linux_6_2);
-    linux_6_3 = recurseIntoAttrs (packagesFor kernels.linux_6_3);
   };
 
   rtPackages = {
@@ -608,7 +590,7 @@ in {
   packageAliases = {
     linux_default = packages.linux_5_15;
     # Update this when adding the newest kernel major version!
-    linux_latest = packages.linux_6_3;
+    linux_latest = packages.linux_6_2;
     linux_mptcp = packages.linux_mptcp_95;
     linux_rt_default = packages.linux_rt_5_4;
     linux_rt_latest = packages.linux_rt_5_10;

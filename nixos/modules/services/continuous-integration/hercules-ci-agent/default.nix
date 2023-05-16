@@ -35,9 +35,6 @@ in
         ExecStartPre = testCommand;
         Restart = "on-failure";
         RestartSec = 120;
-
-        LimitSTACK = 256 * 1024 * 1024;
-        OOMPolicy = "continue";
       };
     };
 
